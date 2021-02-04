@@ -31,6 +31,10 @@ jobs:
         run: npm run-script test-ci
       - name: Run Tests second
         run: npm run-script test-ci
+      - name: Run Tests third
+        run: npm run-script test-ci
+      - name: Run Tests fourth
+        run: npm run-script test-ci
       - name: Send Coverage
         run: npm run-script coverage
 
