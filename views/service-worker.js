@@ -132,9 +132,11 @@ function fromCache(request) {
 
 // On install, cache some resources.
 self.addEventListener('install', (evt) => {
-  // console.log('The service worker is being installed.');
+  console.log('The service worker is being installed.');
   self.skipWaiting();
+  console.log('started wait until precache');
   evt.waitUntil(precache());
+  console.log('finished wait until precache');
 });
 
 function inCache(request) {
