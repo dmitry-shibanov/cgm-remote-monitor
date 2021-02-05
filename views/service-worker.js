@@ -137,7 +137,7 @@ self.addEventListener('install', (evt) => {
   console.log('started wait until precache');
   setTimeout(function() {
     evt.waitUntil(precache());
-  }, 12000);
+  }, 22000);
   console.log('finished wait until precache');
 });
 
