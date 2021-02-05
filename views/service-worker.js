@@ -139,7 +139,7 @@ self.addEventListener('install', (evt) => {
   console.log('The service worker is being installed.');
   self.skipWaiting();
   console.log('started wait until precache');
-  evt.waitUntil(sleep(20000).then(res => precache()));
+  evt.waitUntil(sleep(10000).then(res => precache()));
   console.log('finished wait until precache');
 });
 
@@ -167,7 +167,7 @@ self.addEventListener('fetch', (evt) => {
 
 self.addEventListener('activate', (event) => {
     event.waitUntil(
-      sleep(22000).then(res => {
+      sleep(12000).then(res => {
       caches.keys().then((cacheNames) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
