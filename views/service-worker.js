@@ -135,7 +135,9 @@ self.addEventListener('install', (evt) => {
   console.log('The service worker is being installed.');
   self.skipWaiting();
   console.log('started wait until precache');
-  evt.waitUntil(precache());
+  setTimeout(function() {
+    evt.waitUntil(precache());
+  }, 12000);
   console.log('finished wait until precache');
 });
 
@@ -162,16 +164,18 @@ self.addEventListener('fetch', (evt) => {
 });
 
 self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE) {
-            // console.log('Deleting out of date cache:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    }));
+  setTimeout(function() {
+    event.waitUntil(
+      caches.keys().then((cacheNames) => {
+        return Promise.all(
+          cacheNames.map((cacheName) => {
+            if (cacheName !== CACHE) {
+              // console.log('Deleting out of date cache:', cacheName);
+              return caches.delete(cacheName);
+            }
+          })
+        );
+      }));  }, 15000);
+
 
 });
