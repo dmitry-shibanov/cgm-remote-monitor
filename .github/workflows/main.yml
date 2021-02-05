@@ -27,8 +27,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-      - name: Run postinstall
-        run: npm run-script postinstall
       - name: Run Tests
         run: npm run-script test-ci
       - name: Run Tests second
